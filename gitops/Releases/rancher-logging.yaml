@@ -25,6 +25,19 @@ spec:
     disablePvc: true
     logging:
       enabled: true
+      fluentd:
+        dnsConfig:
+          nameservers:
+          - 169.254.20.10
+          options:
+          - name: ndots
+            value: "1"
+          - name: timeout
+            value: "2"
+          - name: attempts
+            value: "5"
+          - name: edns0
+          searches: []
     fluentbit:
       dnsConfig:
         nameservers:
