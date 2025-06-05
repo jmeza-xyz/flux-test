@@ -28,7 +28,7 @@ spec:
       fluentd:
         dnsConfig:
           nameservers:
-          - 169.254.20.10
+          - 192.168.1.03
           options:
           - name: ndots
             value: "1"
@@ -41,7 +41,7 @@ spec:
       fluentbit:
         dnsConfig:
           nameservers:
-          - 169.254.20.10
+          - 192.168.1.03
           options:
           - name: ndots
             value: "1"
