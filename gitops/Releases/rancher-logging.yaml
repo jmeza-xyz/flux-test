@@ -56,18 +56,18 @@ spec:
           cpu: 10m
           memory: 512Mi
     fluentd:
-#      dnsConfig:
-#        nameservers:
-#        - 169.254.20.10
-#        options:
-#        - name: ndots
-#          value: "1"
-#        - name: timeout
-#          value: "2"
-#        - name: attempts
-#          value: "5"
-#        - name: edns0
-#        searches: []
+      dnsConfig:
+        nameservers:
+        - 169.254.20.10
+        options:
+        - name: ndots
+          value: "1"
+        - name: timeout
+          value: "2"
+        - name: attempts
+          value: "5"
+        - name: edns0
+        searches: []
       replicas: 1
       resources:
         requests:
