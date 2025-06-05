@@ -5,6 +5,8 @@ metadata:
   namespace: kube-system
 spec:
   interval: 10m
+  dependsOn:
+    - name: rancher-logging-crd
   chart:
     spec:
       chart: rancher-logging
