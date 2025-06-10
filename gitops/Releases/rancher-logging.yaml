@@ -26,6 +26,7 @@ spec:
     logging:
       enabled: true
       fluentd:
+        image: harbor.sslip.io/kube-logging/fluentd:v1.16-4.10-full
         dnsConfig:
           nameservers:
           - 192.168.1.03
