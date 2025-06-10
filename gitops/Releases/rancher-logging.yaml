@@ -38,6 +38,14 @@ spec:
             value: "5"
           - name: edns0
           searches: []
+        bufferStorageVolume:
+          pvc:
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 2Gi
       fluentbit:
         dnsConfig:
           nameservers:
