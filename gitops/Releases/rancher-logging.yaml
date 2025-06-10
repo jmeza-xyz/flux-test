@@ -1,99 +1,99 @@
-#apiVersion: helm.toolkit.fluxcd.io/v2
-#kind: HelmRelease
-#metadata:
-#  name: rancher-logging
-#  namespace: kube-system
-#spec:
-#  interval: 10m
-#  dependsOn:
-#    - name: rancher-logging-crd
-#  chart:
-#    spec:
-#      chart: rancher-logging
-#      version: '105.2.1+up4.10.0'
-#      sourceRef:
-#        kind: HelmRepository
-#        name: rancher-charts
-#        namespace: kube-system
-#      interval: 5m
-#  targetNamespace: cattle-logging-system
-#  values:
-#    additionalLoggingSources:
-#      rke2:
-#        enabled: true
-#    debug: true
-#    disablePvc: true
-#    logging:
-#      enabled: true
-#      fluentd:
-#        dnsConfig:
-#          nameservers:
-#          - 192.168.1.03
-#          options:
-#          - name: ndots
-#            value: "1"
-#          - name: timeout
-#            value: "2"
-#          - name: attempts
-#            value: "5"
-#          - name: edns0
-#          searches: []
-#        bufferStorageVolume:
-#          pvc:
-#            spec:
-#              accessModes:
-#                - ReadWriteOnce
-#              resources:
-#                requests:
-#                  storage: 2Gi
-#      fluentbit:
-#        dnsConfig:
-#          nameservers:
-#          - 192.168.1.03
-#          options:
-#          - name: ndots
-#            value: "1"
-#          - name: timeout
-#            value: "2"
-#          - name: attempts
-#            value: "5"
-#          - name: edns0
-#          searches: []
-#    fluentbit:
-#      resources:
-#        requests:
-#          cpu: 10m
-#          memory: 512M
-#    fluentd:
-#      replicas: 1
-#      resources:
-#        requests:
-#          cpu: 20m
-#          memory: 512M
-#    global:
-#      seLinux:
-#        enabled: true
-#    resources:
-#      requests:
-#        cpu: 50m
-#        memory: 512M
-#    image:
-#      pullPolicy: Always
-#      repository: harbor.sslip.io/rancher/mirrored-kube-logging-logging-operator
-#      tag: 4.10.0
-#    images:
-#      config_reloader:
-#        repository: harbor.sslip.io/rancher/mirrored-kube-logging-config-reloader
-#        tag: v0.0.6
-#      fluentbit:
-#        repository: harbor.sslip.io/rancher/mirrored-fluent-fluent-bit
-#        tag: 3.1.8
-#      fluentbit_debug:
-#        repository: harbor.sslip.io/rancher/mirrored-fluent-fluent-bit
-#        tag: 3.1.8-debug
-#      fluentd:
-#        repository: harbor.sslip.io/rancher/mirrored-kube-logging-fluentd
-#        tag: v1.16-4.10-full
-#      nodeagent_fluentbit:
-#        repository: harbor.sslip.io/rancher/mirrored-fluent-fluent-bit
-#        tag: 3.1.8
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: rancher-logging
+  namespace: kube-system
+spec:
+  interval: 10m
+  dependsOn:
+    - name: rancher-logging-crd
+  chart:
+    spec:
+      chart: rancher-logging
+      version: '105.2.1+up4.10.0'
+      sourceRef:
+        kind: HelmRepository
+        name: rancher-charts
+        namespace: kube-system
+      interval: 5m
+  targetNamespace: cattle-logging-system
+  values:
+    additionalLoggingSources:
+      rke2:
+        enabled: true
+    debug: true
+    disablePvc: true
+    logging:
+      enabled: true
+      fluentd:
+        dnsConfig:
+          nameservers:
+          - 192.168.1.03
+          options:
+          - name: ndots
+            value: "1"
+          - name: timeout
+            value: "2"
+          - name: attempts
+            value: "5"
+          - name: edns0
+          searches: []
+        bufferStorageVolume:
+          pvc:
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 2Gi
+      fluentbit:
+        dnsConfig:
+          nameservers:
+          - 192.168.1.03
+          options:
+          - name: ndots
+            value: "1"
+          - name: timeout
+            value: "2"
+          - name: attempts
+            value: "5"
+          - name: edns0
+          searches: []
+    fluentbit:
+      resources:
+        requests:
+          cpu: 10m
+          memory: 512M
+    fluentd:
+      replicas: 1
+      resources:
+        requests:
+          cpu: 20m
+          memory: 512M
+    global:
+      seLinux:
+        enabled: true
+    resources:
+      requests:
+        cpu: 50m
+        memory: 512M
+    image:
+      pullPolicy: Always
+      repository: harbor.sslip.io/rancher/mirrored-kube-logging-logging-operator
+      tag: 4.10.0
+    images:
+      config_reloader:
+        repository: harbor.sslip.io/rancher/mirrored-kube-logging-config-reloader
+        tag: v0.0.6
+      fluentbit:
+        repository: harbor.sslip.io/rancher/mirrored-fluent-fluent-bit
+        tag: 3.1.8
+      fluentbit_debug:
+        repository: harbor.sslip.io/rancher/mirrored-fluent-fluent-bit
+        tag: 3.1.8-debug
+      fluentd:
+        repository: harbor.sslip.io/rancher/mirrored-kube-logging-fluentd
+        tag: v1.16-4.10-full
+      nodeagent_fluentbit:
+        repository: harbor.sslip.io/rancher/mirrored-fluent-fluent-bit
+        tag: 3.1.8
