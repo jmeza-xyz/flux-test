@@ -16,7 +16,6 @@ spec:
         name: rancher-charts
         namespace: kube-system
       interval: 5m
-      timeout: 30m
   targetNamespace: cattle-logging-system
   values:
     additionalLoggingSources:
