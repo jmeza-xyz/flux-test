@@ -81,21 +81,21 @@ spec:
         memory: 512M
     image:
       pullPolicy: Always
-      repository: harbor.sslip.io/rancher/mirrored-kube-logging-logging-operator
+      repository: rancher/mirrored-kube-logging-logging-operator
       tag: 4.10.0
     images:
       config_reloader:
-        repository: harbor.sslip.io/rancher/mirrored-kube-logging-config-reloader
+        repository: rancher/mirrored-kube-logging-config-reloader
         tag: v0.0.6
       fluentbit:
-        repository: harbor.sslip.io/rancher/mirrored-fluent-fluent-bit
+        repository: rancher/mirrored-fluent-fluent-bit
         tag: 3.1.8
       fluentbit_debug:
-        repository: harbor.sslip.io/rancher/mirrored-fluent-fluent-bit
+        repository: rancher/mirrored-fluent-fluent-bit
         tag: 3.1.8-debug
       fluentd:
-        repository: harbor.sslip.io/rancher/mirrored-kube-logging-fluentd
+        repository: rancher/mirrored-kube-logging-fluentd
         tag: v1.16-4.10-full
       nodeagent_fluentbit:
-        repository: harbor.sslip.io/rancher/mirrored-fluent-fluent-bit
+        repository: rancher/mirrored-fluent-fluent-bit
         tag: 3.1.8
