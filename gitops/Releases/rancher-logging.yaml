@@ -88,18 +88,19 @@ spec:
           searches: []
     loggingOverlay:
       spec:
-        dnsConfig:
-          nameservers:
-          - 192.168.1.03
-          options:
-          - name: ndots
-            value: "1"
-          - name: timeout
-            value: "2"
-          - name: attempts
-            value: "5"
-          - name: edns0
-          searches: []
+        fluentd:
+          dnsConfig:
+            nameservers:
+            - 192.168.1.03
+            options:
+            - name: ndots
+              value: "1"
+            - name: timeout
+              value: "2"
+            - name: attempts
+              value: "5"
+            - name: edns0
+            searches: []
     global:
       cattle:
         systemDefaultRegistry: "harbor.sslip.io"
