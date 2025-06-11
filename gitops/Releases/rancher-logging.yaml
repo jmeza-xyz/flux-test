@@ -24,7 +24,7 @@ spec:
     debug: true
     disablePvc: true
     logging:
-      enabled: true
+      enabled: false
       fluentd:
         image: harbor.sslip.io/kube-logging/fluentd:v1.16-4.10-full
         dnsConfig:
@@ -42,11 +42,12 @@ spec:
         bufferStorageVolume:
           pvc:
             spec:
-              accessModes:
-                - ReadWriteOnce
-              resources:
-                requests:
-                  storage: 2Gi
+              emptyDir: {}
+      #        accessModes:
+      #          - ReadWriteOnce
+      #        resources:
+      #          requests:
+      #            storage: 2Gi
       fluentbit:
         dnsConfig:
           nameservers:
@@ -71,6 +72,32 @@ spec:
         requests:
           cpu: 20m
           memory: 512M
+    fluentbitAgentOverlay:
+      dnsConfig:
+        nameservers:
+        - 192.168.1.03
+        options:
+        - name: ndots
+          value: "1"
+        - name: timeout
+          value: "2"
+        - name: attempts
+          value: "5"
+        - name: edns0
+        searches: []
+    loggingOverlay:
+      dnsConfig:
+        nameservers:
+        - 192.168.1.03
+        options:
+        - name: ndots
+          value: "1"
+        - name: timeout
+          value: "2"
+        - name: attempts
+          value: "5"
+        - name: edns0
+        searches: []
     global:
       cattle:
         systemDefaultRegistry: "harbor.sslip.io"
