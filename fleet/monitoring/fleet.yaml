@@ -21,7 +21,7 @@ helm:
           - action: drop
             regex: "fleet_null_bug_workaround"
             sourceLabels:
-              - __name__
+              - "__name__"
     prometheus-node-exporter:
       prometheus:
         monitor:
@@ -29,7 +29,7 @@ helm:
             - action: drop
               regex: "fleet_null_bug_workaround"
               sourceLabels:
-                - __name__
+                - "__name__"
 
     alertmanager:
       serviceMonitor:
@@ -37,7 +37,7 @@ helm:
           - action: drop
             regex: "fleet_null_bug_workaround"
             sourceLabels:
-              - __name__
+              - "__name__"
 
     grafana:
       serviceMonitor:
@@ -45,7 +45,7 @@ helm:
           - action: drop
             regex: "fleet_null_bug_workaround"
             sourceLabels:
-              - __name__
+              - "__name__"
       persistence:
         enabled: false
     coreDns:
