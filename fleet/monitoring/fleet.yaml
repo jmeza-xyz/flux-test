@@ -19,6 +19,9 @@ helm:
       prometheus:
         monitor:
           metricRelabelings: []
+          - action: drop
+              regex: "fleet_null_bug_workaround_ignore_me"
+              sourceLabels: ["__name__"]
     prometheus:
       prometheusSpec:
         retention: 5d
