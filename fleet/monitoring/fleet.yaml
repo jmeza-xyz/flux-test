@@ -15,7 +15,13 @@ helm:
   version: 109.0.1+up80.9.1-rancher.8
   releaseName: rancher-monitoring
   values:
-  values:
+  prometheusOperator:
+      serviceMonitor:
+        metricRelabelings:
+          - action: drop
+            regex: "fleet_null_bug_workaround"
+            sourceLabels:
+              - __name__
     prometheus-node-exporter:
       prometheus:
         monitor:
