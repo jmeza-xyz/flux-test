@@ -1,0 +1,9 @@
+# monitoring-crd/fleet.yaml
+defaultNamespace: cattle-monitoring-system
+labels:
+  app: rancher-monitoring-crd
+helm:
+  repo: https://charts.rancher.io
+  chart: rancher-monitoring-crd
+  version: 109.0.1+up80.9.1-rancher.8
+  releaseName: rancher-monitoring-crd

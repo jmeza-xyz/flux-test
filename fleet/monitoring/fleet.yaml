@@ -1,0 +1,24 @@
+# monitoring/fleet.yaml
+defaultNamespace: cattle-monitoring-system
+
+dependsOn:
+  - selector:
+      matchLabels:
+        app: rancher-monitoring-crd
+
+namespaceLabels:
+  cattle.io/os: linux
+
+helm:
+  repo: https://charts.rancher.io
+  chart: rancher-monitoring
+  version: 109.0.1+up80.9.1-rancher.8
+  releaseName: rancher-monitoring
+  values:
+    prometheus:
+      prometheusSpec:
+        retention: 5d
+        scrapeInterval: 1m
+    grafana:
+      persistence:
+        enabled: false
