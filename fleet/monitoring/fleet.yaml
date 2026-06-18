@@ -35,7 +35,8 @@ helm:
         metricRelabelings:
           - action: drop
             regex: "fleet_null_bug_workaround"
-            sourceLabels: [__name__]
+            sourceLabels:
+              - __name__
 
     coreDns:
       serviceMonitor:
