@@ -23,3 +23,10 @@ helm:
               regex: "fleet_null_bug_workaround"
               sourceLabels:
                 - __name__
+    alertmanager:
+      serviceMonitor:
+        metricRelabelings:
+          - action: drop
+            regex: "fleet_null_bug_workaround"
+            sourceLabels:
+              - __name__
