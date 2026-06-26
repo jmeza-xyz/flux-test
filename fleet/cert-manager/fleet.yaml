@@ -5,9 +5,10 @@ namespaceLabels:
   cattle.io/os: linux
 
 helm:
-  repo: "oci://quay.io/jetstack/charts"
+  repo: https://charts.jetstack.io
   chart: cert-manager
   version: v1.20.3
+  releaseName: cert-manager
   values:
     crds:
       enabled: true
