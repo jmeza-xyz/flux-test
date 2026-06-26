@@ -1,17 +1,11 @@
 # cert-manager/fleet.yaml
 defaultNamespace: cert-manager
 
-#dependsOn:
-#  - selector:
-#      matchLabels:
-#        app: cert-manager-crd
-
 namespaceLabels:
   cattle.io/os: linux
 
 helm:
   repo: oci://quay.io/jetstack/charts/cert-manager
-  chart: cert-manager
   version: v1.20.3
   releaseName: cert-manager
   values:
